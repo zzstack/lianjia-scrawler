@@ -55,6 +55,7 @@ class Community(BaseModel):
     house_num = CharField(null=True)
     price = CharField(null=True)
     city = CharField(null=True)
+	street_list = CharField(null=True)
     validdate = DateTimeField(default=datetime.datetime.now)
 
 

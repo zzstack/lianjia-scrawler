@@ -607,8 +607,14 @@ def get_communityinfo_by_url(url):
     if check_block(soup):
         return
 
-    communityinfos = soup.findAll("div", {"class": "xiaoquInfoItem"})
+    streetlistinfos = soup.findAll("div", {"class": "detailDesc"})
     res = {}
+    if len(streetlistinfos) == 1:
+        streetlist = streetlistinfos[0].get_text().strip()
+        res.update({u'street_list':streetlist})
+
+    communityinfos = soup.findAll("div", {"class": "xiaoquInfoItem"})
+    
     for info in communityinfos:
         key_type = {
             u"建筑年代": u'year',
