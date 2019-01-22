@@ -268,10 +268,15 @@ def get_sell_percommunity(city, communityname):
                 model.Sellinfo.insert_many(data_source).upsert().execute()
         time.sleep(1)
 
-
 def get_community_perregion(city, regionname=u'xicheng'):
+    for iy in range(5):
+        for ip in rage(7):
+            get_community_perregion_limit(city,regionname,"y%d"%iy,"p%d"%ip);
+
+def get_community_perregion_limit(city, regionname,iy,ip):
     baseUrl = u"http://%s.lianjia.com/" % (city)
-    url = baseUrl + u"xiaoqu/" + regionname + "/"
+    url = baseUrl + u"xiaoqu/" + regionname + "/" + iy + ip + "/"
+    logging.info("url: " + url)
     source_code = misc.get_source_code(url)
     soup = BeautifulSoup(source_code, 'lxml')
 
@@ -285,7 +290,8 @@ def get_community_perregion(city, regionname=u'xicheng'):
 
     for page in range(total_pages):
         if page > 0:
-            url_page = baseUrl + u"xiaoqu/" + regionname + "/pg%d/" % page
+            url_page = baseUrl + u"xiaoqu/" + regionname + "/pg%d" % page + iy + ip + "/"
+			logging.info("url_page: " + url_page)
             source_code = misc.get_source_code(url_page)
             soup = BeautifulSoup(source_code, 'lxml')
 
