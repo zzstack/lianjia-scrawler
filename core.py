@@ -291,7 +291,7 @@ def get_community_perregion_limit(city, regionname,iy,ip):
     for page in range(total_pages):
         if page > 0:
             url_page = baseUrl + u"xiaoqu/" + regionname + "/pg%d" % page + iy + ip + "/"
-			logging.info("url_page: " + url_page)
+            logging.info("url_page: " + url_page)
             source_code = misc.get_source_code(url_page)
             soup = BeautifulSoup(source_code, 'lxml')
 
