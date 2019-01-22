@@ -269,8 +269,8 @@ def get_sell_percommunity(city, communityname):
         time.sleep(1)
 
 def get_community_perregion(city, regionname=u'xicheng'):
-    for iy in range(5):
-        for ip in rage(7):
+    for iy in range(1,5):
+        for ip in range(1,7):
             get_community_perregion_limit(city,regionname,"y%d"%iy,"p%d"%ip);
 
 def get_community_perregion_limit(city, regionname,iy,ip):
