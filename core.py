@@ -269,8 +269,8 @@ def get_sell_percommunity(city, communityname):
         time.sleep(1)
 
 def get_community_perregion(city, regionname=u'xicheng'):
-    for iy in range(1,5):
-        for ip in range(1,7):
+    for iy in range(4,6):
+        for ip in range(1,8):
             get_community_perregion_limit(city,regionname,"y%d"%iy,"p%d"%ip);
 
 def get_community_perregion_limit(city, regionname,iy,ip):
@@ -288,7 +288,7 @@ def get_community_perregion_limit(city, regionname,iy,ip):
         row = model.Community.select().count()
         raise RuntimeError("Finish at %s because total_pages is None" % row)
 
-    for page in range(total_pages):
+    for page in range(1,total_pages+1):
         if page > 0:
             url_page = baseUrl + u"xiaoqu/" + regionname + "/pg%d" % page + iy + ip + "/"
             logging.info("url_page: " + url_page)
