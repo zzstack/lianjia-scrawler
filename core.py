@@ -298,7 +298,7 @@ def get_community_perregion_limit(city, regionname,iy,ip):
         nameList = soup.findAll("li", {"class": "clear"})
         i = 0
         log_progress("GetCommunityByRegionlist",
-                     regionname, page + 1, total_pages)
+                     regionname, page + 1, total_pages + 1)
         data_source = []
         for name in nameList:  # Per house loop
             i = i + 1
