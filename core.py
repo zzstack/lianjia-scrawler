@@ -114,7 +114,6 @@ def get_house_percommunity(city, communityname):
             url_page = baseUrl + \
                 u"ershoufang/pg%drs%s/" % (page,
                                            urllib2.quote(communityname.encode('utf8')))
-            logging.info("page: " + url_page)
             source_code = misc.get_source_code(url_page)
             soup = BeautifulSoup(source_code, 'lxml')
 
@@ -652,5 +651,5 @@ def check_block(soup):
 
 
 def log_progress(function, address, page, total):
-    logging.info("Progress: %s %s: current page %d total pages %d" %
-                 (function, address.encode('utf8'), page, total))
+    logging.info(u"Progress: %s %s: current page %d total pages %d" %
+                 (function, address, page, total))
