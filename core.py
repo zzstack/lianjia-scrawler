@@ -136,6 +136,8 @@ def get_house_percommunity(city, communityname):
                     info = houseaddr.div.get_text().split('/')
                 else:
                     info = houseaddr.div.get_text().split('|')
+                if info[0].strip() != communityname:
+                    continue
                 info_dict.update({u'community': communityname})
                 info_dict.update({u'housetype': info[1].strip()})
                 info_dict.update({u'square': info[2].strip()})
