@@ -171,6 +171,7 @@ def get_house_percommunity(city, communityname):
             # model.Houseinfo.insert(**info_dict).upsert().execute()
             #model.Hisprice.insert(houseID=info_dict['houseID'], totalPrice=info_dict['totalPrice']).upsert().execute()
 
+        logging.info("community house count: " + str(len(data_source)))
         with model.database.atomic():
             if data_source:
                 model.Houseinfo.insert_many(data_source).upsert().execute()
